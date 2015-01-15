@@ -1,0 +1,109 @@
+<% provide(:title, "Nieuwsitems") %>
+
+
+<h1>Nieuwsitems <small>Overzicht</small></h1>
+
+<%= link_to "Nieuw", new_admins_news_path %>
+
+<h2>Nieuws voorafgaand aan de reunie</h2>
+<% @news.each do |news| %>
+	<% next if (news.before == false)  %>
+
+	<p>
+		<b>Titel</b><br>
+		<%= news.title %>
+	</p>
+	<p>
+		<b>Content</b><br>
+		<%= news.content %> 
+	</p>
+	
+	<p>
+	<b>Afbeelding</b><br>
+		<% if (news.image == nil) %>
+			<%= image_tag "no-img.jpg" %>
+		<% else %>
+			<%= image_tag news.image %>
+		<% end %>
+	</p>
+	<p>
+		<b>Is het nieuws voorafgaand aan de reuinie?</b> 
+		
+		<% if news.before %>
+		Ja
+		<% else %>
+		Nee
+		<% end %>
+	</p>
+	<p>
+		<b>Twitter</b><br>
+		<%= news.twitter %> 
+	</p>
+	<p>
+		<b>Facebook</b><br>
+		<%= news.facebook %> 
+	</p>
+	<p>
+		<b>Linked-In</b><br>
+		<%= news.linkedin %> 
+	</p>
+
+
+	<small>
+		<%= link_to "Bewerken", edit_admins_news_path(news)  %> | 
+		<%= link_to "Verwijderen", admins_news_path(news), method: :delete, data: { :confirm => "Weet u het zeker?" } %>
+	</small>
+<% end %>
+
+
+<h2>Nieuws na afloop van de reunie</h2>
+<% @news.each do |news| %>
+	<% next if (news.before == true)  %>
+
+	<p>
+		<b>Titel</b><br>
+		<%= news.title %>
+	</p>
+	<p>
+		<b>Content</b><br>
+		<%= news.content %> 
+	</p>
+	
+	<p>
+	<b>Afbeelding</b><br>
+		<% if (news.image == nil) %>
+			<%= image_tag "no-img.jpg" %>
+		<% else %>
+			<%= image_tag news.image %>
+		<% end %>
+	</p>
+	<p>
+		<b>Is het nieuws voorafgaand aan de reuinie?</b> 
+		
+		<% if news.before %>
+		Ja
+		<% else %>
+		Nee
+		<% end %>
+	</p>
+	<p>
+		<b>Twitter</b><br>
+		<%= news.twitter %> 
+	</p>
+	<p>
+		<b>Facebook</b><br>
+		<%= news.facebook %> 
+	</p>
+	<p>
+		<b>Linked-In</b><br>
+		<%= news.linkedin %> 
+	</p>
+
+
+	<small>
+		<%= link_to "Bewerken", edit_admins_news_path(news)  %> | 
+		<%= link_to "Verwijderen", admins_news_path(news), method: :delete, data: { :confirm => "Weet u het zeker?" } %>
+	</small>
+<% end %>
+
+

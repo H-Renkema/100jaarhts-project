@@ -1,0 +1,11 @@
+<h1>Edit Photoalbum</h1>
+
+<%= form_for @photoalbum do |f| %>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.submit "Save changes" %>
+	</p>
+<% end %>

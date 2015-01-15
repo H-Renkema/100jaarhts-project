@@ -1,0 +1,14 @@
+<body>
+	<h1>Hallo alumnus!</h1>
+	<p>
+		Tijd tot reunie: 103 dagen - 3 uur - 15 minuten
+	</p>
+	<%= link_to "Photoalbum", photoalbums_path %>
+
+	<p><% @photo.each do |photo| %>
+		<%= image_tag(photo.file_name.thumb.url) %>
+	<% end %></p>
+	<p>
+		<%= link_to "inschrijvingspagina", "http://www.nhl.nl/nhl/10845/over-de-nhl/100-jaar-hts/aanmelden.html", :target => '_blank' %>
+	</p>
+</body>

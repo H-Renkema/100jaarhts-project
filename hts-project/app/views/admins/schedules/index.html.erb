@@ -1,0 +1,47 @@
+<h1>Schema</h1>
+
+<% @schedules.each do |schedule| %>
+	<p>
+		<b>Tijd van-tot</b> <br>
+		<% if !(schedule.start_time == "" || schedule.start_time == nil) %>
+			<%= schedule.start_time.strftime('%H:%M')%>
+		<% else %>
+			00:00
+		<% end %>
+		 - 
+		<% if !(schedule.end_time == "" || schedule.end_time == nil) %>
+			<%= schedule.end_time.strftime('%H:%M') %>
+		<% else %>
+			00:00
+		<% end %>
+	</p>
+	<p>
+		<b>Titel</b> <br>
+		<%= schedule.title %>
+	</p>
+	<p>
+		<b>Locatie</b> <br>
+		<%= schedule.location %>
+	</p>
+	<p>
+		<b>Spreker</b> <br>
+		<%= schedule.speaker %>
+	</p>
+	<p>
+		<b>Content</b> <br>
+		<%= schedule.content %>
+	</p>
+	<p>
+		<b>Icon</b> <br>
+		<%= schedule.icon %>
+	</b>
+	<p>
+		<small>
+			<%= link_to "Edit", edit_admins_schedule_path(schedule) %> | 
+			<%= link_to "Delete", admins_schedule_path(schedule), :method => :delete, data: { :confirm => "Zeker weten?" } %>
+		</small>
+	</p>
+	<hr />
+<% end %>
+
+<p><%= link_to "Event toevoegen", new_admins_schedule_path %></p>

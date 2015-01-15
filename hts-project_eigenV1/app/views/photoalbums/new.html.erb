@@ -1,0 +1,12 @@
+Add a new photo album
+
+<%= form_for @photoalbum do |f| %>
+<p>
+	<%= f.text_field :name %>
+</p>
+<p>
+	<%= f.submit "Add albumname" %>
+</p>
+<% end %>
+
+<%= link_to "indexpage", photoalbums_path %>

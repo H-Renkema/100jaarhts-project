@@ -1,0 +1,31 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "jquery.fancybox";
+
+body{
+	margin: 0px;
+	font-family: Impact, Charcoal, sans-serif;
+
+	background-image: url(nhl_bg.png); 
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+div.timer span{
+	background-color: white;
+	color: black;
+	padding: 10px;
+	margin: 10px;
+	min-width: 100px;
+	
+	border-radius: 50%;
+}
+
+.timer{
+	color: white;
+	display: inline;
+	float: left;
+	position: center;
+}

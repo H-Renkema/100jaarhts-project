@@ -1,0 +1,25 @@
+<h1><%= @photoalbum.name %></h1>
+
+<% @photoalbum.photos.each do |photo| %>
+	<%= image_tag(photo.file_name.thumb.url) %>
+	<br>
+	<!-- <small><%= @photoalbum.created_at %></small> -->
+	<p>
+		<small>
+			<%= link_to "Delete", [photo.photoalbum, photo], :method => :delete, data:{:confirm => "Are you sure?"} %>
+		</small>
+	</p>
+<% end %>
+
+
+<h2>Add a photo:</h2>
+<%= form_for([@photoalbum, @photoalbum.photos.build]) do |f| %>
+	<p>
+		<%= f.file_field :file_name %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to "Back", photoalbums_path %>

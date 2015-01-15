@@ -1,0 +1,8 @@
+<%= form_tag("/klassenfoto/generate_single", method: "post") do %>
+	<%= select_tag(:background, '
+		<option value="nhl2014">NHL Rengerslaan</option>
+		<option value="molenstraat">NHL Molenstraat</option>
+		<option value="tesselschadestraat">NHL Tesselschadestraat</option>
+    ') %>
+	<%= submit_tag("Search") %>
+<% end %>

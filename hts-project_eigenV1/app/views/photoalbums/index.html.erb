@@ -1,0 +1,28 @@
+<h1>Indexpage</h1>
+<% @photoalbums.each do |photoalbum| %>
+	<%= link_to photoalbum.name, photoalbum %>
+	<% if admin_signed_in? %>
+		<p>
+			<small>
+				<%= link_to "Edit", edit_photoalbum_path(photoalbum) %>
+			</small> | 
+			<small>
+				<%= link_to "Delete", photoalbum, :method => :delete, data:{:confirm => "Are you sure?"} %>
+			</small>
+		</p>
+	<% end %>
+	<br>
+<% end %>
+<br>
+<%= link_to "add photoalbum", new_photoalbum_path %>
+
+
+<% if admin_signed_in? %>
+	<small>
+		<%= link_to "Log out", destroy_admin_session_path, :method => :delete %>
+	</small>
+	<% else %>
+	<small>
+		<%= link_to "Log in", new_admin_session_path %>
+	</small>
+<% end %>

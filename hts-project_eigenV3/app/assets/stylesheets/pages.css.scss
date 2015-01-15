@@ -1,0 +1,61 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "jquery.fancybox";
+
+body{
+	margin: 0px;
+	font-family: Impact, Charcoal, sans-serif;
+}
+
+.frontpage_bg{
+	width: 100%;
+}
+
+header{
+	padding: 10px 50px 10px 50px;
+	background-image: url(frontpage_bg.jpg);
+	height: 100vh;
+	background-size: 100%;
+}
+
+.container1{
+	padding: 50px;
+	background-color: #E0E0E0;
+	left: -50px; right: 0px;
+}
+
+.container2{
+	padding: 50px;
+	background-color: #B8B8B8;
+	left: 0px; right: 0px;
+}
+
+#countdowner{
+	border: 5px ridge black;
+	padding: 5px;
+	width: 300px;
+	text-align: center;
+	float: right;
+	background-color: rgba(0,0,0, 0.5); ;
+	
+}
+
+#cdtime{
+	border: 3px ridge black;
+	padding: 3px;
+}
+
+#cdtime{
+	border: 3px ridge black;
+	padding: 3px;
+	text-align: center;
+}
+
+.cdtimedata{
+	width: 70px;
+	border: 2px ridge black;
+	padding: 3px;
+	display: inline-block;
+	text-align: center;
+}

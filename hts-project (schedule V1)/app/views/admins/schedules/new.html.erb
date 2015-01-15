@@ -1,0 +1,60 @@
+<h1>Add a new time</h1>
+
+<%= form_for @schedule, url: admins_schedules_path(@schedule) do |f| %>
+	<p>
+		<%= f.label :start_time %><br />
+		<select id="start-hours">	
+		<% for hours in 0..23 %>
+			<%= options_for_select([[hours.to_s.rjust(2, '0')]]) %>
+		<% end %>
+		</select> : 
+		<select id="start-minutes">
+			<% for minutes in 0..59 %>
+				<%= options_for_select([[minutes.to_s.rjust(2, '0')]]) %>
+			<% end %>
+		</select>
+		<%= f.time_field :start_time, style:"display:none;" %>
+	</p>
+	<p>
+		<%= f.label :end_time %><br />
+		<select id="end-hours">	
+		<% for hours in 0..23 %>
+			<%= options_for_select([[hours.to_s.rjust(2, '0')]]) %>
+		<% end %>
+		</select> : 
+		<select id="end-minutes">
+			<% for minutes in 0..59 %>
+				<%= options_for_select([[minutes.to_s.rjust(2, '0')]]) %>
+			<% end %>
+		</select>
+		<%= f.time_field :end_time, style:"display:none;" %>
+	</p>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :location %><br />
+		<%= f.text_field :location %>
+	</p>
+	<p>
+		<%= f.label :speaker %><br />
+		<%= f.text_field :speaker %>
+	</p>
+	<p>
+		<%= f.label :content %><br />
+		<%= f.text_area :content %>
+	</p>
+	<p>
+		<%= f.select(:icon, options_for_select([['Koffie', 'Coffee'],
+																					 ['Microfoon', 'Microfoon'],
+																					 ['Tekst', 'Text'],
+																					 ['Video', 'Video']], 1)) %><br />
+		
+	</p>
+	<p>
+		<%= f.submit "Sumbit" %>
+	</p>
+<% end %>
+
+<%= javascript_include_tag "admins/schedules" %>

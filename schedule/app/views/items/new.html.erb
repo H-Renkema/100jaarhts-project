@@ -1,0 +1,23 @@
+<h1>Add a new time</h1>
+
+<%= form_for @item do |f| %>
+	<% if @item.errors.any? %>
+		<h2>Errors:</h2>
+		<ul>
+			<% @item.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<p>
+		<%= f.label :time %><br />
+		<%= f.text_field :time %>
+	</p>
+	<p>
+		<%= f.label :content %><br />
+		<%= f.text_area :content %>
+	</p>
+	<p>
+		<%= f.submit "Sumbit" %>
+	</p>
+<% end %>

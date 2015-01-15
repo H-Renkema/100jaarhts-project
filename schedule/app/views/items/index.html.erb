@@ -1,0 +1,14 @@
+<h1>Schema</h1>
+<h2>Zaterdag 14 maart</h2>
+
+<% @items.each do |item| %>
+	<h2><%= link_to item.time, item %></h2>
+	<p><%= item.content %></p>
+	<p>
+		<%= link_to "Edit", edit_item_path(item) %> | 
+		<%= link_to "Delete", item, :method => :delete, data: { :confirm => "Zeker weten?" } %>
+	</p>
+	<hr />
+<% end %>
+
+<p><%= link_to "Add a new time", new_item_path %></p>

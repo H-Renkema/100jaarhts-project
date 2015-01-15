@@ -1,0 +1,20 @@
+<h1>Schema</h1>
+<h2>Zaterdag 14 maart</h2>
+
+<% @schedules.each do |schedule| %>
+	<h2>
+		<%= schedule.start_time.strftime('%H:%M')%> - 
+		<%= schedule.end_time.strftime('%H:%M') %>
+	</h2>
+	<p><%= schedule.title %></p>
+	<p><%= schedule.location %></p>
+	<p><%= schedule.speaker %></p>
+	<p><%= schedule.content %></p>
+	<p>
+		<%= link_to "Edit", edit_admins_schedule_path(schedule) %> | 
+		<%= link_to "Delete", admins_schedule_path(schedule), :method => :delete, data: { :confirm => "Zeker weten?" } %>
+	</p>
+	<hr />
+<% end %>
+
+<p><%= link_to "Add a new event", new_admins_schedule_path %></p>
