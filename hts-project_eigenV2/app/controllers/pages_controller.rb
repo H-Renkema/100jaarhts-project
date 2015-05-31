@@ -1,6 +1,7 @@
+# Pages controller
 class PagesController < ApplicationController
 
-	def index
-		@photo = Photo.where(:featured => true)
-	end
+  def index
+    @photo = Photo.where(:featured => true)
+  end
 end

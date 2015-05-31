@@ -1,7 +1,6 @@
+# GreenScreenImageUploader
 # encoding: utf-8
-
 class GreenScreenImageUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
@@ -17,21 +16,21 @@ class GreenScreenImageUploader < CarrierWave::Uploader::Base
     "uploads/processed/#{filename[0..15]}/#{filename[15..30]}"
   end
 
-   def filename
-     if original_filename
+  def filename
+    if original_filename
 
-       existing = model.send(:"#{mounted_as}_identifier")
+      existing = model.send(:"#{mounted_as}_identifier")
 
-       # reuse the existing file name from the model if present.
-       # otherwise, generate a new one (and cache it in an instance variable)
-       @generated_filename ||= if existing.present?
-                                 existing
-                               else
-                                 "#{sha1_for file}-#{SecureRandom.hex(4)}.png"
-                               end
+      # reuse the existing file name from the model if present.
+      # otherwise, generate a new one (and cache it in an instance variable)
+      @generated_filename ||= if existing.present?
+                                existing
+                              else
+                                "#{sha1_for file}-#{SecureRandom.hex(4)}.png"
+                              end
 
-     end
-   end
+    end
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -40,8 +39,8 @@ class GreenScreenImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-   process :convert => 'png' # Convert to PNG so transparency works
-   process :removescreen # Remove the green screen from the image
+  process :convert => 'png' # Convert to PNG so transparency works
+  process :removescreen # Remove the green screen from the image
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -49,7 +48,9 @@ class GreenScreenImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+
   private
+
   def removescreen
     manipulate! do |source|
       original = source
